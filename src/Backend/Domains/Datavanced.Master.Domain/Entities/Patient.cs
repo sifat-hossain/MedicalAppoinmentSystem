@@ -12,5 +12,5 @@ public class Patient : BaseEntity
     public string Phone { get; set; }
     public string? Address { get; set; }
 
-    public ICollection<Appoitment> Appoitments { get; set; }
+    public ICollection<Appointment> Appointments { get; set; }
 }

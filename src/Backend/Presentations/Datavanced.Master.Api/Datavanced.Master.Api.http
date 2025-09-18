@@ -1,0 +1,6 @@
+@Datavanced.Master.Api_HostAddress = http://localhost:5296
+
+GET {{Datavanced.Master.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
