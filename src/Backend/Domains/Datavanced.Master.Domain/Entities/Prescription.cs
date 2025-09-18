@@ -11,5 +11,5 @@ public class Prescription : BaseEntity
     public Guid MedicineId { get; set; }
     public Medicine Medicine { get; set; }
     public Guid AppoitmentId { get; set; }
-    public Appoitment Appoitment { get; set; }
+    public Appointment Appoitment { get; set; }
 }

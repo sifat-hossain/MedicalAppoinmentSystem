@@ -2,7 +2,7 @@
 
 namespace Datavanced.Master.Domain.Entities;
 
-public class Appoitment : BaseEntity
+public class Appointment : BaseEntity
 {
     public DateTime AppoitmentDate { get; set; }
     public string Diagnosis { get; set; }

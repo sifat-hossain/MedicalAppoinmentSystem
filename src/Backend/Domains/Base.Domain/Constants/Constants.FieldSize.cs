@@ -12,5 +12,7 @@ public static partial class Constants
         public const int Address = 500;
         public const int Note = 1000;
         public const int PageSize = 20;
+        public const int Number = 20;
+        public const int Age = 5;
     }
 }
