@@ -22,8 +22,21 @@ public class AppointmentController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet()]
-    public async Task<PushResponse<AppointmentModel>> PullAppointments(PullAppointmentsRequest request, CancellationToken cancellationToken)
+    public async Task<PushResponse<AppointmentModel>> PullAppointments(
+        [FromQuery] string? SearchText,
+        [FromQuery] Guid? DoctorId,
+        [FromQuery] string? VisitType,
+        [FromQuery] int Skip,
+        [FromQuery] int Take, CancellationToken cancellationToken)
     {
+        var request = new PullAppointmentsRequest
+        {
+            SearchText = SearchText,
+            DoctorId = DoctorId,
+            VisitType = VisitType,
+            Skip = Skip,
+            Take = Take
+        };
         return await _mediator.Send(request, cancellationToken);
     }
 

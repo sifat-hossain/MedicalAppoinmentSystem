@@ -22,9 +22,9 @@ public class PrescriptionController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet()]
-    public async Task<PushResponse<PrescriptionModel>> PullPrescriptions(PullPrescriptionsRequest request, CancellationToken cancellationToken)
+    public async Task<PushResponse<PrescriptionModel>> PullPrescriptions([FromQuery] Guid appointmentId, CancellationToken cancellationToken)
     {
-        return await _mediator.Send(request, cancellationToken);
+        return await _mediator.Send(new PullPrescriptionsRequest { AppointmentId = appointmentId }, cancellationToken);
     }
 
     [HttpPut("{id}")]

@@ -15,7 +15,7 @@ public sealed class PushPrescriptionHandler : IRequestHandler<PushPrescriptionCo
         {
             var prescription = new Prescription
             {
-                Id = command.Id,
+                Id = (Guid)command.Id,
                 Dosage = command.Dosage,
                 StartDate = command.StartDate,
                 EndDate = command.EndDate,

@@ -21,6 +21,7 @@ public class PullAppointmentsHandler : IRequestHandler<PullAppointmentsRequest, 
             IQueryable<Appointment> appointmentQuery = _coreDbContext.Appointment
                 .Include(d => d.Doctor)
                 .Include(d => d.Patient)
+                .Where(d => !d.IsDeleted)
                 .AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(request.SearchText))

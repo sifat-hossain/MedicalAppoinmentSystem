@@ -1,6 +1,4 @@
-﻿using Datavanced.Applications.Actions.Prescriptions;
-
-namespace Datavanced.Applications.Actions.Prescriptions.Pull.PullPrescriptions;
+﻿namespace Datavanced.Applications.Actions.Prescriptions.Pull.PullPrescriptions;
 
 public class PullPrescriptionsHandler : IRequestHandler<PullPrescriptionsRequest, PushResponse<PrescriptionModel>>
 {
@@ -16,6 +14,7 @@ public class PullPrescriptionsHandler : IRequestHandler<PullPrescriptionsRequest
         try
         {
             List<Prescription> prescriptionQuery = await _coreDbContext.Prescription
+                .Where(d => !d.IsDeleted)
                 .Include(d => d.Appoitment)
                 .Include(d => d.Medicine)
                 .AsNoTracking()

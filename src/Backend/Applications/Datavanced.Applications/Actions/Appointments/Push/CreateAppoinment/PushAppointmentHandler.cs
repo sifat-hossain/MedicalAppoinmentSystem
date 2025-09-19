@@ -15,7 +15,7 @@ public sealed class PushAppointmentHandler : IRequestHandler<PushAppointmentComm
         {
             var appointment = new Appointment
             {
-                Id = command.Id,
+                Id = (Guid)command.Id,
                 AppoitmentDate = command.AppoitmentDate,
                 Diagnosis = command.Diagnosis,
                 VisitType = command.VisitType,
