@@ -1,6 +1,8 @@
 using Datavanced.Applications;
+using Datavanced.Applications.Actions.Doctors.Pull.PullDoctors;
 using Datavanced.Infrastructures;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,9 @@ builder.Services.AddDbContext<DatavancedMedicalDbContext>(o =>
 });
 
 builder.Services.AddScoped<IDatavancedMedicalDbContext, DatavancedMedicalDbContext>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(PullDoctorsHandler).GetTypeInfo().Assembly));
+
 
 var app = builder.Build();
 
