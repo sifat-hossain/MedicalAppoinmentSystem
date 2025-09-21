@@ -1,8 +1,13 @@
 using Datavanced.Applications;
 using Datavanced.Applications.Actions.Doctors.Pull.PullDoctors;
+using Datavanced.Applications.Actions.Medicines.Push;
 using Datavanced.Infrastructures;
+using Datavanced.Medical.Framework.Validator;
+using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,8 +32,12 @@ builder.Services.AddScoped<IDatavancedMedicalDbContext, DatavancedMedicalDbConte
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(PullDoctorsHandler).GetTypeInfo().Assembly));
 
+builder.Services.AddValidatorsFromAssemblyContaining<PushMedicineValidator>();
+
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidator<,>));
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

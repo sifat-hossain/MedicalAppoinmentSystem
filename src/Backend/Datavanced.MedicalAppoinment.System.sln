@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datavanced.Infrastructures"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datavanced.Master.Api", "Presentations\Datavanced.Master.Api\Datavanced.Master.Api.csproj", "{9FB556FB-ABA6-47C4-8294-8AE6F37EA3CD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{257DDC75-AA4F-4D0B-A9FA-217CACCEEDF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datavanced.Medical.Framework", "Framework\Datavanced.Medical.Framework\Datavanced.Medical.Framework.csproj", "{006A6FFA-D283-4BB5-AE1D-94A2C1E596A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{9FB556FB-ABA6-47C4-8294-8AE6F37EA3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FB556FB-ABA6-47C4-8294-8AE6F37EA3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FB556FB-ABA6-47C4-8294-8AE6F37EA3CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{006A6FFA-D283-4BB5-AE1D-94A2C1E596A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{006A6FFA-D283-4BB5-AE1D-94A2C1E596A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{006A6FFA-D283-4BB5-AE1D-94A2C1E596A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{006A6FFA-D283-4BB5-AE1D-94A2C1E596A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +65,7 @@ Global
 		{DA02FCEE-D8EC-4B27-B193-2D5744440082} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{39456848-9A4F-4DD9-9078-7B6A7C9F1F02} = {5F777B5D-F39D-4A74-9215-F8BF6662CFB4}
 		{9FB556FB-ABA6-47C4-8294-8AE6F37EA3CD} = {C7E913EF-B6F5-4F08-9460-830C4BECB5AD}
+		{006A6FFA-D283-4BB5-AE1D-94A2C1E596A2} = {257DDC75-AA4F-4D0B-A9FA-217CACCEEDF9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A28ABFE5-A783-4713-869F-D36319230733}
