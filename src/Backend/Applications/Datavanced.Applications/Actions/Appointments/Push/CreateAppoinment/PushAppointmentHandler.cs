@@ -13,19 +13,27 @@ public sealed class PushAppointmentHandler : IRequestHandler<PushAppointmentComm
     {
         try
         {
-            var appointment = new Appointment
+            var appointment = await _coreDbContext.Appointment
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == command.Id, cancellationToken);
+            if (appointment == null)
             {
-                Id = (Guid)command.Id,
-                AppoitmentDate = command.AppoitmentDate,
-                Diagnosis = command.Diagnosis,
-                VisitType = command.VisitType,
-                IsDeleted = command.IsDeleted,
-                Note = command.Note,
-                PatientId = command.PatientId,
-                DoctorId = command.DoctorId
-            };
+                appointment = new Appointment
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedOn = DateTime.UtcNow,
+                };
+                await _coreDbContext.Appointment.AddAsync(appointment, cancellationToken);
+            }
 
-            await _coreDbContext.Appointment.AddAsync(appointment, cancellationToken);
+            appointment.AppoitmentDate = command.AppoitmentDate;
+            appointment.Diagnosis = command.Diagnosis;
+            appointment.VisitType = command.VisitType;
+            appointment.IsDeleted = command.IsDeleted;
+            appointment.Note = command.Note;
+            appointment.PatientId = command.PatientId;
+            appointment.DoctorId = command.DoctorId;
+
             await _coreDbContext.SaveChangesAsync(cancellationToken);
 
             return new PushResponse<AppointmentModel>

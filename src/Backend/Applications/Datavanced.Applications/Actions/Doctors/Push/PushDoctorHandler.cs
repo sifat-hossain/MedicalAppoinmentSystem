@@ -23,8 +23,9 @@ public sealed class PushDoctorHandler : IRequestHandler<PushDoctorCommand, PushR
                 {
                     Id = Guid.NewGuid(),
                 };
-                _coreDbContext.Doctor.Add(doctor);
+                await _coreDbContext.Doctor.AddAsync(doctor, cancellationToken);
             }
+
             doctor.Name = command.Name;
             doctor.Designation = command.Designation;
             doctor.Degree = command.Degree;
